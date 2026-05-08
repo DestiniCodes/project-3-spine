@@ -1,0 +1,84 @@
+/* ============================================================
+   SPINE — Design Tokens
+   All color themes defined here as CSS custom properties.
+   The [data-theme] and [data-mode] attributes on <html>
+   control which set of variables is active.
+   ============================================================ */
+
+/* ── BASE (Rose · Light — default) ── */
+:root {
+  --bg:           #FAF7F2;
+  --surface:      #FFFFFF;
+  --surface-2:    #F5F0EA;
+  --border:       #E8DDD8;
+  --primary:      #C4849E;
+  --primary-dim:  #F0E6EA;
+  --accent:       #8BB87A;
+  --accent-dim:   #EDF4EA;
+  --text:         #2C2422;
+  --text-muted:   #8A8078;
+  --text-inverse: #FFFFFF;
+  --shadow:       rgba(44, 36, 34, 0.07);
+  --shadow-md:    rgba(44, 36, 34, 0.12);
+
+  --font-heading: 'Fraunces', serif;
+  --font-body:    'Inter', sans-serif;
+
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-full: 9999px;
+
+  --transition: 0.2s ease;
+}
+
+/* ── ROSE · DARK ── */
+[data-theme="rose"][data-mode="dark"] {
+  --bg:           #1C1917;
+  --surface:      #2A2421;
+  --surface-2:    #342E2B;
+  --border:       #3A3230;
+  --primary:      #D4A5B5;
+  --primary-dim:  #2E2220;
+  --accent:       #8BB87A;
+  --accent-dim:   #1E2C1C;
+  --text:         #FAF7F2;
+  --text-muted:   #A09088;
+  --text-inverse: #1C1917;
+  --shadow:       rgba(0,0,0,0.3);
+  --shadow-md:    rgba(0,0,0,0.5);
+}
+
+/* ── SLATE · LIGHT ── */
+[data-theme="slate"] {
+  --bg:           #F3F5F7;
+  --surface:      #FFFFFF;
+  --surface-2:    #EBF0F5;
+  --border:       #DDE2E8;
+  --primary:      #4A6FA5;
+  --primary-dim:  #E8EEF5;
+  --accent:       #7BA68A;
+  --accent-dim:   #E4EEE8;
+  --text:         #1E2530;
+  --text-muted:   #7A8898;
+  --text-inverse: #FFFFFF;
+  --shadow:       rgba(30, 37, 48, 0.07);
+  --shadow-md:    rgba(30, 37, 48, 0.12);
+}
+
+/* ── SLATE · DARK ── */
+[data-theme="slate"][data-mode="dark"] {
+  --bg:           #141C26;
+  --surface:      #1C2A3A;
+  --surface-2:    #243448;
+  --border:       #2A3A4C;
+  --primary:      #6B9BD2;
+  --primary-dim:  #1A2A40;
+  --accent:       #7BA68A;
+  --accent-dim:   #1A2C22;
+  --text:         #E8EEF5;
+  --text-muted:   #7A8898;
+  --text-inverse: #141C26;
+  --shadow:       rgba(0,0,0,0.35);
+  --shadow-md:    rgba(0,0,0,0.55);
+}
