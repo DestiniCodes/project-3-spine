@@ -15,26 +15,19 @@ const DEFAULT_PROFILE = {
 };
 
 export function LibraryProvider({ children }) {
-  // ── Persisted state ──
   const [library,     setLibrary]     = useLocalStorage('spine-library',  []);
   const [shelves,     setShelves]     = useLocalStorage('spine-shelves',  []);
   const [userProfile, setUserProfile] = useLocalStorage('spine-profile',  DEFAULT_PROFILE);
   const [genres,      setGenres]      = useLocalStorage('spine-genres',   DEFAULT_GENRES);
   const [tropes,      setTropes]      = useLocalStorage('spine-tropes',   DEFAULT_TROPES);
-
-  // ── Apply theme + dark mode to <html> ──
   useEffect(() => {
     const html = document.documentElement;
     html.setAttribute('data-theme', userProfile.theme || 'rose');
     html.setAttribute('data-mode',  userProfile.darkMode ? 'dark' : 'light');
   }, [userProfile.theme, userProfile.darkMode]);
-
-  // ── Profile ──
   const updateProfile = useCallback((patch) => {
     setUserProfile((p) => ({ ...p, ...patch }));
   }, [setUserProfile]);
-
-  // ── Library CRUD ──
   const addBook = useCallback((bookData) => {
     const book = {
       id:              uid(),
@@ -95,8 +88,6 @@ export function LibraryProvider({ children }) {
   const isInLibrary = useCallback((googleBooksId) => {
     return library.some((b) => b.googleBooksId === googleBooksId);
   }, [library]);
-
-  // ── Re-read log ──
   const addRead = useCallback((bookId, readData) => {
     setLibrary((prev) =>
       prev.map((b) => {
@@ -115,8 +106,6 @@ export function LibraryProvider({ children }) {
       })
     );
   }, [setLibrary]);
-
-  // ── Shelves ──
   const addShelf = useCallback((name) => {
     const shelf = { id: uid(), name, createdDate: today() };
     setShelves((prev) => [...prev, shelf]);
@@ -129,7 +118,6 @@ export function LibraryProvider({ children }) {
 
   const removeShelf = useCallback((id) => {
     setShelves((prev) => prev.filter((s) => s.id !== id));
-    // Remove shelf from all books
     setLibrary((prev) =>
       prev.map((b) => ({ ...b, shelves: b.shelves.filter((sid) => sid !== id) }))
     );
@@ -144,8 +132,6 @@ export function LibraryProvider({ children }) {
       })
     );
   }, [setLibrary]);
-
-  // ── Custom tags ──
   const addGenre = useCallback((g) => {
     setGenres((prev) => [...new Set([...prev, g])].sort());
   }, [setGenres]);
@@ -153,21 +139,15 @@ export function LibraryProvider({ children }) {
   const addTrope = useCallback((t) => {
     setTropes((prev) => [...new Set([...prev, t])].sort());
   }, [setTropes]);
-
-  // ── Computed views ──
   const currentlyReading = library.filter((b) => b.status === 'reading' && !b.isArchived);
   const favorites        = library.filter((b) => b.isFavorite && !b.isArchived);
   const archived         = library.filter((b) => b.isArchived);
   const activeLibrary    = library.filter((b) => !b.isArchived);
-
-  // ── Stats for current year ──
   const yearStats = (() => {
     const year = new Date().getFullYear().toString();
     const finished = activeLibrary.filter((b) => {
       if (b.status !== 'finished') return false;
-      // If reads are logged, require at least one finished this year
       if (b.reads.length > 0) return b.reads.some((r) => r.endDate?.startsWith(year));
-      // Fallback: no reads logged — count if the book was added this year
       return b.dateAdded?.startsWith(year);
     });
     const pages = finished.reduce((sum, b) => sum + (b.pageCount || 0), 0);
@@ -181,19 +161,12 @@ export function LibraryProvider({ children }) {
 
   return (
     <LibraryContext.Provider value={{
-      // State
       library, shelves, userProfile, genres, tropes,
-      // Computed
       currentlyReading, favorites, archived, activeLibrary, yearStats,
-      // Profile
       updateProfile,
-      // Library
       addBook, updateBook, removeBook, toggleFavorite, archiveBook, isInLibrary,
-      // Reads
       addRead, updateRead,
-      // Shelves
       addShelf, renameShelf, removeShelf, assignShelf,
-      // Tags
       addGenre, addTrope,
     }}>
       {children}

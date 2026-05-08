@@ -77,7 +77,6 @@ export default function LibraryCardModal({ book, onClose }) {
           boxShadow: '0 24px 64px rgba(0,0,0,0.3)',
         }}
       >
-        {/* ── HEADER ── */}
         <div style={{
           display: 'flex', gap: '20px', padding: '24px 24px 0',
           background: 'var(--surface-2)', borderBottom: '1px solid var(--border)',
@@ -104,7 +103,6 @@ export default function LibraryCardModal({ book, onClose }) {
               {b.reads?.length > 1 && <span className="pill">Read {b.reads.length}×</span>}
             </div>
 
-            {/* Tabs */}
             <div style={{ display: 'flex', marginTop: '12px', borderTop: '1px solid var(--border)', marginLeft: '-24px', paddingLeft: '24px' }}>
               {['details', 'notes', 'shelves'].map((t) => (
                 <TabBtn key={t} label={t.charAt(0).toUpperCase() + t.slice(1)} active={tab === t} onClick={() => { save(); setTab(t); }} />
@@ -112,18 +110,14 @@ export default function LibraryCardModal({ book, onClose }) {
             </div>
           </div>
 
-          {/* Close */}
           <button className="btn-icon" onClick={() => { save(); onClose(); }} style={{ alignSelf: 'flex-start', fontSize: '1.1rem' }}>✕</button>
         </div>
 
-        {/* ── BODY ── */}
         <div style={{ overflowY: 'auto', flex: 1, padding: '24px' }}>
 
-          {/* ── DETAILS TAB ── */}
           {tab === 'details' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
 
-              {/* Status + Rating */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div className="field">
                   <label className="label">Reading Status</label>
@@ -137,7 +131,6 @@ export default function LibraryCardModal({ book, onClose }) {
                 </div>
               </div>
 
-              {/* Format + Platform */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div className="field">
                   <label className="label">Format</label>
@@ -156,7 +149,6 @@ export default function LibraryCardModal({ book, onClose }) {
                 )}
               </div>
 
-              {/* Progress */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div className="field">
                   <label className="label">{b.format === 'audiobook' ? 'Progress (%)' : 'Current Page'}</label>
@@ -170,7 +162,6 @@ export default function LibraryCardModal({ book, onClose }) {
                 </div>
               </div>
 
-              {/* Reading Log */}
               <div className="field">
                 <label className="label">Reading Log</label>
                 {book.reads.length === 0 ? (
@@ -213,7 +204,6 @@ export default function LibraryCardModal({ book, onClose }) {
                 </button>
               </div>
 
-              {/* Flags */}
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
                 {[
                   { key: 'isFavorite',      label: '♥ Favorite'       },
@@ -237,7 +227,6 @@ export default function LibraryCardModal({ book, onClose }) {
                 ))}
               </div>
 
-              {/* Genres */}
               <div className="field">
                 <label className="label">Genres</label>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '8px' }}>
@@ -256,7 +245,6 @@ export default function LibraryCardModal({ book, onClose }) {
                 </div>
               </div>
 
-              {/* Tropes */}
               <div className="field">
                 <label className="label">Tropes</label>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginBottom: '8px' }}>
@@ -275,7 +263,6 @@ export default function LibraryCardModal({ book, onClose }) {
                 </div>
               </div>
 
-              {/* Publisher info */}
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div className="field">
                   <label className="label">Publisher</label>
@@ -287,7 +274,6 @@ export default function LibraryCardModal({ book, onClose }) {
                 </div>
               </div>
 
-              {/* Purchase links */}
               <div>
                 <label className="label" style={{ marginBottom: '10px' }}>Find & Purchase</label>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -309,7 +295,6 @@ export default function LibraryCardModal({ book, onClose }) {
                 </div>
               </div>
 
-              {/* Description */}
               {b.description && (
                 <div>
                   <label className="label">Description</label>
@@ -319,7 +304,6 @@ export default function LibraryCardModal({ book, onClose }) {
                 </div>
               )}
 
-              {/* Danger zone */}
               <div style={{ borderTop: '1px solid var(--border)', paddingTop: '16px', marginTop: '4px' }}>
                 {!confirmDel ? (
                   <button className="btn btn-ghost btn-sm" style={{ color: '#B05A5A', borderColor: '#B05A5A' }} onClick={() => setConfirmDel(true)}>
@@ -336,7 +320,6 @@ export default function LibraryCardModal({ book, onClose }) {
             </div>
           )}
 
-          {/* ── NOTES TAB ── */}
           {tab === 'notes' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
               <div className="field">
@@ -363,7 +346,6 @@ export default function LibraryCardModal({ book, onClose }) {
                 </label>
               </div>
 
-              {/* Share link */}
               <div style={{ background: 'var(--surface-2)', borderRadius: 'var(--radius-md)', padding: '16px' }}>
                 <label className="label">Share this book</label>
                 <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '10px' }}>
@@ -375,7 +357,6 @@ export default function LibraryCardModal({ book, onClose }) {
                 </div>
               </div>
 
-              {/* Quick shelf assignment */}
               <div className="field">
                 <label className="label">Add to Shelf</label>
                 {shelves.length === 0 ? (
@@ -408,7 +389,6 @@ export default function LibraryCardModal({ book, onClose }) {
             </div>
           )}
 
-          {/* ── SHELVES TAB ── */}
           {tab === 'shelves' && (
             <div>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '16px' }}>
@@ -448,7 +428,6 @@ export default function LibraryCardModal({ book, onClose }) {
 
         </div>
 
-        {/* ── FOOTER ── */}
         <div style={{ padding: '14px 24px', borderTop: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'var(--surface)' }}>
           <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>Added {formatDate(book.dateAdded)}</span>
           <button className="btn btn-primary btn-sm" onClick={() => { save(); onClose(); }}>Save & Close</button>

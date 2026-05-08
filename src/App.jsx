@@ -13,12 +13,8 @@ import Stats      from './pages/Stats';
 import Settings   from './pages/Settings';
 import SharedBook from './pages/SharedBook';
 import NotFound   from './pages/NotFound';
-
-// Inner wrapper — has access to LibraryContext
 function AppInner() {
   const { userProfile } = useLibrary();
-
-  // First-time setup screen
   if (!userProfile.setupComplete) {
     return <SetupScreen />;
   }

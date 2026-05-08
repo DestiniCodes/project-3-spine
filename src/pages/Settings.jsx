@@ -27,7 +27,6 @@ export default function Settings() {
       try {
         const data = JSON.parse(ev.target.result);
         if (!data.library || !Array.isArray(data.library)) throw new Error('Invalid file');
-        // Store imported data
         localStorage.setItem('spine-library', JSON.stringify(data.library));
         if (data.shelves) localStorage.setItem('spine-shelves', JSON.stringify(data.shelves));
         if (data.userProfile) localStorage.setItem('spine-profile', JSON.stringify({ ...data.userProfile, setupComplete: true }));
@@ -72,7 +71,6 @@ export default function Settings() {
           Settings
         </h1>
 
-        {/* Profile */}
         <Section title="Profile">
           <div className="field">
             <label className="label">Your name</label>
@@ -87,7 +85,6 @@ export default function Settings() {
           </button>
         </Section>
 
-        {/* Appearance */}
         <Section title="Appearance">
           <label className="label" style={{ marginBottom: '12px' }}>Theme</label>
           <div style={{ display: 'flex', gap: '12px', marginBottom: '20px' }}>
@@ -116,7 +113,6 @@ export default function Settings() {
           </div>
         </Section>
 
-        {/* Data */}
         <Section title="Your Data">
           <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '20px' }}>
             Your library lives on this device. Export regularly to back it up — if you clear your browser data, your library will be gone. Import a backup to restore it.

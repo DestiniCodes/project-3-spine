@@ -1,19 +1,12 @@
 import { useState, useCallback } from 'react';
-
-// Open Library — free, no API key, no quota limits
-// Docs: https://openlibrary.org/developers/api
 const SEARCH_BASE  = 'https://openlibrary.org/search.json';
 const COVER_BASE   = 'https://covers.openlibrary.org/b/id';
 const WORKS_BASE   = 'https://openlibrary.org';
-
-// Fields we want from the search endpoint
 const FIELDS = [
   'key', 'title', 'author_name', 'first_publish_year',
   'publisher', 'isbn', 'cover_i', 'subject',
   'number_of_pages_median',
 ].join(',');
-
-// Shape an Open Library search doc into our internal book format
 function shapeBook(doc) {
   const coverId = doc.cover_i;
   return {

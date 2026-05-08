@@ -26,7 +26,6 @@ export default function BookCard({ book, onClick }) {
         borderRadius: 'var(--radius-md)',
       }}
     >
-      {/* Cover */}
       <img
         src={book.coverImage || COVER_PLACEHOLDER}
         alt={book.title}
@@ -34,7 +33,6 @@ export default function BookCard({ book, onClick }) {
         onError={(e) => { e.target.src = COVER_PLACEHOLDER; }}
       />
 
-      {/* Info */}
       <div style={{ flex: 1, minWidth: 0 }}>
         <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px', marginBottom: '2px' }}>
           <h3 style={{
@@ -44,7 +42,6 @@ export default function BookCard({ book, onClick }) {
           }}>
             {book.title}
           </h3>
-          {/* Favorite heart */}
           <button
             className="btn-icon"
             style={{ flexShrink: 0, fontSize: '1rem', color: book.isFavorite ? '#E05A7A' : undefined }}
@@ -61,7 +58,6 @@ export default function BookCard({ book, onClick }) {
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', alignItems: 'center' }}>
 
-          {/* Quick status dropdown — no modal needed */}
           <select
             className={`status-select-inline ${statusMeta.css}`}
             value={book.status || 'want-to-read'}
@@ -74,7 +70,6 @@ export default function BookCard({ book, onClick }) {
             ))}
           </select>
 
-          {/* Rating */}
           {book.rating && (
             <span className="pill">
               <span className="star-yellow">{starsFromRating(book.rating)}</span>
@@ -82,14 +77,12 @@ export default function BookCard({ book, onClick }) {
             </span>
           )}
 
-          {/* Re-read count */}
           {book.reads?.length > 1 && (
             <span className="pill" title={`Read ${book.reads.length} times`}>
               Read {book.reads.length}×
             </span>
           )}
 
-          {/* Format */}
           {book.format && book.format !== 'physical' && (
             <span className="pill">{book.format === 'ebook' ? '📱 eBook' : '🎧 Audio'}</span>
           )}

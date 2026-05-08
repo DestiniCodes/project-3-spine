@@ -1,7 +1,4 @@
-// ── ID GENERATION ──
 export const uid = () => crypto.randomUUID();
-
-// ── DATE HELPERS ──
 export const today = () => new Date().toISOString().split('T')[0];
 
 export const formatDate = (iso) => {
@@ -12,24 +9,16 @@ export const formatDate = (iso) => {
 };
 
 export const currentYear = () => new Date().getFullYear();
-
-// ── RATING HELPERS ──
-// Generate rating options: 1, 1.25, 1.5 … 5
 export const RATING_OPTIONS = Array.from({ length: 17 }, (_, i) => +(1 + i * 0.25).toFixed(2));
 
 export const formatRating = (r) => {
   if (!r) return '—';
   return r % 1 === 0 ? `${r}.0` : String(r);
 };
-
-// Render star string from rating — full stars only (e.g. 3.75 → "★★★")
-// The decimal number is shown alongside in the UI for precision
 export const starsFromRating = (rating) => {
   if (!rating) return '';
   return '★'.repeat(Math.floor(rating));
 };
-
-// ── STATUS HELPERS ──
 export const STATUS_META = {
   'want-to-read': { label: 'Want to Read',       css: 'status-want'    },
   'reading':      { label: 'Currently Reading',  css: 'status-reading'  },
@@ -37,14 +26,10 @@ export const STATUS_META = {
   'dnf':          { label: 'Did Not Finish',     css: 'status-dnf'     },
   'paused':       { label: 'Paused',             css: 'status-paused'  },
 };
-
-// ── PROGRESS ──
 export const progressPercent = (book) => {
   if (!book.currentPage || !book.pageCount) return 0;
   return Math.min(100, Math.round((book.currentPage / book.pageCount) * 100));
 };
-
-// ── PURCHASE LINKS ──
 export const purchaseLinks = (book) => {
   const q = encodeURIComponent(`${book.title} ${(book.authors || []).join(' ')}`);
   const isbn = book.isbn ? encodeURIComponent(book.isbn) : null;
@@ -55,8 +40,6 @@ export const purchaseLinks = (book) => {
     { name: 'Kobo',            url: `https://www.kobo.com/us/en/search?query=${q}`,   icon: '📱' },
   ];
 };
-
-// ── EXPORT / IMPORT ──
 export const exportLibrary = (library, shelves, userProfile) => {
   const data = { library, shelves, userProfile, exportedAt: new Date().toISOString(), version: 1 };
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
@@ -67,8 +50,6 @@ export const exportLibrary = (library, shelves, userProfile) => {
   a.click();
   URL.revokeObjectURL(url);
 };
-
-// ── SHARE (encode book to URL param) ──
 export const encodeShareBook = (book) => {
   const payload = {
     title:       book.title,
@@ -87,8 +68,6 @@ export const decodeShareBook = (encoded) => {
   try { return JSON.parse(decodeURIComponent(escape(atob(encoded)))); }
   catch { return null; }
 };
-
-// ── SORT COMPARATORS ──
 export const SORT_FNS = {
   'title-asc':   (a, b) => a.title.localeCompare(b.title),
   'title-desc':  (a, b) => b.title.localeCompare(a.title),

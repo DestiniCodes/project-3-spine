@@ -27,8 +27,6 @@ export default function Shelves() {
 
   const booksOnShelf = (shelfId) =>
     activeLibrary.filter((b) => b.shelves?.includes(shelfId));
-
-  // filtered picker books
   const pickerBooks = activeLibrary.filter((b) =>
     bookFilter.trim() === '' ||
     b.title.toLowerCase().includes(bookFilter.toLowerCase()) ||
@@ -47,7 +45,6 @@ export default function Shelves() {
           Organize your books into custom collections. A book can live on multiple shelves.
         </p>
 
-        {/* New shelf input */}
         <div style={{ display: 'flex', gap: '10px', marginBottom: '44px', maxWidth: '420px' }}>
           <input
             className="input"
@@ -61,7 +58,6 @@ export default function Shelves() {
           </button>
         </div>
 
-        {/* Empty state */}
         {shelves.length === 0 ? (
           <div className="empty-state">
             <div style={{ fontSize: '3rem' }}>🗂️</div>
@@ -78,7 +74,6 @@ export default function Shelves() {
               return (
                 <div key={shelf.id}>
 
-                  {/* Shelf label row */}
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px', flexWrap: 'wrap' }}>
                     {isEditing ? (
                       <>
@@ -132,7 +127,6 @@ export default function Shelves() {
                     )}
                   </div>
 
-                  {/* Book picker panel */}
                   {pickerOpen && (
                     <div style={{
                       background: 'var(--surface)',
@@ -151,7 +145,6 @@ export default function Shelves() {
                         </p>
                       ) : (
                         <>
-                          {/* Filter input */}
                           <input
                             className="input"
                             placeholder="Filter by title or author…"
@@ -201,7 +194,6 @@ export default function Shelves() {
                     </div>
                   )}
 
-                  {/* Visual bookshelf */}
                   <div className="bookshelf-wrap">
                     <div className="bookshelf-books">
                       {books.length === 0 ? (

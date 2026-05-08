@@ -1,6 +1,6 @@
 # 📚 Spine — Your Reading Life, Organized.
 
-A personal library web app built with React. Track every book you own or want to read, organize them into custom shelves, rate and review privately, and watch your annual reading stats come to life.
+My personal library web app built with React. Track every book you own or want to read, organize them into custom shelves, rate and review privately, and watch your annual reading stats come to life.
 
 ---
 
@@ -134,4 +134,4 @@ npm run dev
 
 ---
 
-*Built as Major Project 3 for a coding bootcamp. Designed for personal use — a quiet, private reading life tracker.*
+*Built as Major Project 3 for my coding bootcamp. Designed for personal use as a quiet, private reading life tracker.*

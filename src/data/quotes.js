@@ -1,4 +1,3 @@
-// Loading screen quotes — rotating on every load
 export const QUOTES = [
   { text: "A reader lives a thousand lives before he dies.", author: "George R.R. Martin" },
   { text: "There is no friend as loyal as a book.", author: "Ernest Hemingway" },

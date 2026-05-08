@@ -1,7 +1,4 @@
 import { useState, useEffect } from 'react';
-
-// Syncs a piece of state with localStorage.
-// Works like useState but persists across page refreshes.
 export function useLocalStorage(key, initialValue) {
   const [value, setValue] = useState(() => {
     try {

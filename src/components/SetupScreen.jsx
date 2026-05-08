@@ -123,7 +123,6 @@ export default function SetupScreen() {
 
         </div>
 
-        {/* Step dots */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '24px' }}>
           {[1,2,3].map((s) => (
             <div key={s} style={{

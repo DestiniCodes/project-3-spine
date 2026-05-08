@@ -28,7 +28,6 @@ export default function Search() {
           Search Books
         </h1>
 
-        {/* Search bar */}
         <div style={{ display: 'flex', gap: '10px', marginBottom: '32px', maxWidth: '560px' }}>
           <input
             className="input"
@@ -46,14 +45,12 @@ export default function Search() {
           )}
         </div>
 
-        {/* Error */}
         {error && (
           <div style={{ padding: '16px', borderRadius: 'var(--radius-md)', background: '#FAEAEA', color: '#B05A5A', fontSize: '0.88rem', marginBottom: '20px' }}>
             ⚠️ {error}
           </div>
         )}
 
-        {/* Loading */}
         {loading && (
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', padding: '40px' }}>
             <div className="spinner" />
@@ -61,7 +58,6 @@ export default function Search() {
           </div>
         )}
 
-        {/* Empty prompt */}
         {!loading && !error && results.length === 0 && (
           <div className="empty-state">
             <div style={{ fontSize: '3rem' }}>🔍</div>
@@ -70,7 +66,6 @@ export default function Search() {
           </div>
         )}
 
-        {/* Results */}
         {results.length > 0 && (
           <>
             <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '16px' }}>

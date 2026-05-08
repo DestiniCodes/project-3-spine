@@ -1,11 +1,6 @@
-/* ============================================================
-   SPINE — Design Tokens
-   All color themes defined here as CSS custom properties.
-   The [data-theme] and [data-mode] attributes on <html>
-   control which set of variables is active.
-   ============================================================ */
 
-/* ── BASE (Rose · Light — default) ── */
+
+
 :root {
   --bg:           #FAF7F2;
   --surface:      #FFFFFF;
@@ -32,7 +27,7 @@
   --transition: 0.2s ease;
 }
 
-/* ── ROSE · DARK ── */
+
 [data-theme="rose"][data-mode="dark"] {
   --bg:           #1C1917;
   --surface:      #2A2421;
@@ -49,7 +44,7 @@
   --shadow-md:    rgba(0,0,0,0.5);
 }
 
-/* ── SLATE · LIGHT ── */
+
 [data-theme="slate"] {
   --bg:           #F3F5F7;
   --surface:      #FFFFFF;
@@ -66,7 +61,7 @@
   --shadow-md:    rgba(30, 37, 48, 0.12);
 }
 
-/* ── SLATE · DARK ── */
+
 [data-theme="slate"][data-mode="dark"] {
   --bg:           #141C26;
   --surface:      #1C2A3A;

@@ -26,9 +26,7 @@ export default function Nav() {
     }}>
       <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
 
-        {/* Logo */}
         <NavLink to="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', fontFamily: 'var(--font-heading)', fontSize: '1.35rem', fontWeight: 700, color: 'var(--primary)', letterSpacing: '-0.01em' }}>
-          {/* Book spine / stacked pages icon */}
           <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true">
             <rect x="3" y="4" width="9" height="19" rx="2" fill="var(--primary)" opacity="0.25"/>
             <rect x="7" y="3" width="9" height="19" rx="2" fill="var(--primary)" opacity="0.5"/>
@@ -40,7 +38,6 @@ export default function Nav() {
           Spine
         </NavLink>
 
-        {/* Desktop nav */}
         <ul style={{ display: 'flex', gap: '4px', listStyle: 'none', alignItems: 'center' }} className="desktop-nav">
           {links.map(({ to, label }) => (
             <li key={to}>
@@ -64,9 +61,7 @@ export default function Nav() {
           ))}
         </ul>
 
-        {/* Right controls */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          {/* Dark mode toggle */}
           <button
             onClick={toggleDark}
             className="btn-icon"
@@ -76,7 +71,6 @@ export default function Nav() {
             {userProfile.darkMode ? '☀️' : '🌙'}
           </button>
 
-          {/* Settings */}
           <NavLink
             to="/settings"
             className="btn-icon"
@@ -86,7 +80,6 @@ export default function Nav() {
             ⚙️
           </NavLink>
 
-          {/* Hamburger (mobile) */}
           <button
             className="btn-icon mobile-only"
             onClick={() => setMenuOpen((o) => !o)}
@@ -97,7 +90,6 @@ export default function Nav() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       {menuOpen && (
         <div style={{
           background: 'var(--surface)',

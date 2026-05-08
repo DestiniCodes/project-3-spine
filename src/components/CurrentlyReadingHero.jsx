@@ -61,7 +61,6 @@ function HeroCard({ book, onClick }) {
           {book.authors?.join(', ')}
         </p>
 
-        {/* Progress */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <ProgressRing percent={pct} />
           <div>

@@ -23,14 +23,12 @@ export default function SharedBook() {
     <div className="page">
       <div className="container" style={{ paddingTop: '48px', paddingBottom: '60px', maxWidth: '560px' }}>
 
-        {/* Branding */}
         <div style={{ textAlign: 'center', marginBottom: '36px' }}>
           <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.8rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '4px' }}>Spine</div>
           <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Someone shared a book with you</p>
         </div>
 
         <div className="card" style={{ borderRadius: 'var(--radius-lg)', overflow: 'hidden' }}>
-          {/* Cover */}
           <div style={{ background: 'var(--surface-2)', display: 'flex', justifyContent: 'center', padding: '32px' }}>
             <img
               src={book.coverImage || COVER_PLACEHOLDER}
@@ -40,7 +38,6 @@ export default function SharedBook() {
             />
           </div>
 
-          {/* Info */}
           <div style={{ padding: '28px' }}>
             <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', fontWeight: 700, color: 'var(--text)', marginBottom: '6px' }}>
               {book.title}

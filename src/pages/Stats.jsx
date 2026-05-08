@@ -52,7 +52,6 @@ export default function Stats() {
           A quiet look at your reading life this year.
         </p>
 
-        {/* Shareable card */}
         <div
           ref={cardRef}
           style={{
@@ -64,7 +63,6 @@ export default function Stats() {
             borderTop: '6px solid var(--primary)',
           }}
         >
-          {/* Header */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '28px' }}>
             <div>
               <div style={{ fontFamily: 'var(--font-heading)', fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)' }}>Spine</div>
@@ -73,7 +71,6 @@ export default function Stats() {
             <div style={{ fontSize: '2rem' }}>📚</div>
           </div>
 
-          {/* Stats row */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0', borderRadius: 'var(--radius-md)', overflow: 'hidden', background: 'var(--surface-2)', marginBottom: '28px' }}>
             <Stat value={booksFinished} label="Books Finished" />
             <div style={{ borderLeft: '1px solid var(--border)', borderRight: '1px solid var(--border)' }}>
@@ -82,7 +79,6 @@ export default function Stats() {
             <Stat value={topGenre || '—'} label="Top Genre" />
           </div>
 
-          {/* Reading intention progress */}
           {goal > 0 && (
             <div style={{ marginBottom: '28px' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
@@ -100,7 +96,6 @@ export default function Stats() {
             </div>
           )}
 
-          {/* Top rated */}
           {topRated.length > 0 && (
             <div>
               <div style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--text-muted)', marginBottom: '12px' }}>
@@ -135,7 +130,6 @@ export default function Stats() {
           )}
         </div>
 
-        {/* Share button */}
         <button className="btn btn-primary" onClick={shareCard} style={{ width: '100%', justifyContent: 'center', marginBottom: '12px' }}>
           📸 Download as Image
         </button>

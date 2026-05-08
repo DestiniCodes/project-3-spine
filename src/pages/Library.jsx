@@ -34,7 +34,6 @@ export default function Library() {
     <div className="page">
       <div className="container" style={{ paddingTop: '28px', paddingBottom: '60px' }}>
 
-        {/* ── HERO HEADER ── */}
         <div style={{
           background: 'linear-gradient(135deg, var(--primary-dim) 0%, var(--surface) 100%)',
           borderRadius: 'var(--radius-lg)',
@@ -57,7 +56,6 @@ export default function Library() {
               {greeting}
             </h1>
 
-            {/* Stats row */}
             <div style={{ display: 'flex', gap: '0', flexWrap: 'wrap' }}>
               {[
                 { value: activeLibrary.length,    label: 'In Library'                     },
@@ -86,7 +84,6 @@ export default function Library() {
           </Link>
         </div>
 
-        {/* ── CURRENTLY READING ── */}
         {currentlyReading.length > 0 && (
           <>
             <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--text)', marginBottom: '14px' }}>
@@ -96,7 +93,6 @@ export default function Library() {
           </>
         )}
 
-        {/* ── EMPTY STATE ── */}
         {activeLibrary.length === 0 && (
           <div className="empty-state">
             <div style={{ fontSize: '3rem' }}>📚</div>
@@ -108,7 +104,6 @@ export default function Library() {
           </div>
         )}
 
-        {/* ── MY COLLECTION ── */}
         {activeLibrary.length > 0 && (
           <>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>

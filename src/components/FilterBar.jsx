@@ -32,7 +32,6 @@ export default function FilterBar({ filters, setFilters, sort, setSort }) {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center', marginBottom: '24px' }}>
 
-      {/* Status */}
       <select style={selectStyle} value={filters.status || ''} onChange={(e) => set('status', e.target.value)}>
         <option value="">All statuses</option>
         {READING_STATUSES.map((s) => (
@@ -40,13 +39,11 @@ export default function FilterBar({ filters, setFilters, sort, setSort }) {
         ))}
       </select>
 
-      {/* Genre */}
       <select style={selectStyle} value={filters.genre || ''} onChange={(e) => set('genre', e.target.value)}>
         <option value="">All genres</option>
         {genres.map((g) => <option key={g} value={g}>{g}</option>)}
       </select>
 
-      {/* Shelf */}
       {shelves.length > 0 && (
         <select style={selectStyle} value={filters.shelf || ''} onChange={(e) => set('shelf', e.target.value)}>
           <option value="">All shelves</option>
@@ -54,7 +51,6 @@ export default function FilterBar({ filters, setFilters, sort, setSort }) {
         </select>
       )}
 
-      {/* Favorites toggle */}
       <button
         onClick={() => set('favorite', !filters.favorite)}
         style={{
@@ -68,7 +64,6 @@ export default function FilterBar({ filters, setFilters, sort, setSort }) {
         ♥ Favorites
       </button>
 
-      {/* Clear */}
       {hasFilter && (
         <button
           onClick={() => setFilters({})}
@@ -78,7 +73,6 @@ export default function FilterBar({ filters, setFilters, sort, setSort }) {
         </button>
       )}
 
-      {/* Sort — pushed right */}
       <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '8px' }}>
         <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)', fontWeight: 600 }}>Sort</span>
         <select style={selectStyle} value={sort} onChange={(e) => setSort(e.target.value)}>
